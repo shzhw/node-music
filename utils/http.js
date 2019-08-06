@@ -9,7 +9,7 @@ axios.interceptors.request.use(config => {
 
 // 添加一个响应拦截器
 axios.interceptors.response.use(response => {
-  if (response.data.code === 200) {
+  if (response.data.code === 200 || response.data.status === 200) {
     return response.data;
   } else { 
     return Promise.reject({code: 500, message: '系统异常'});
